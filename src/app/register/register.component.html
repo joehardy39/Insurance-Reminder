@@ -1,0 +1,90 @@
+<form [formGroup]="registerform" class="border p-3 rounded-3">
+    <div class="row">
+        <div class="col text-center p- 2 mb- 3 bg-light">
+            <span class="fs-3">Register</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" formControlName="firstname">
+            
+            <div *ngIf="submitted && f['firstname'].errors " class="text-danger">
+              <div *ngIf="f['firstname'].errors['required']">required</div>
+            </div>
+            <!--<div class="form-text text-danger"
+                *ngIf="firstname.errors?.['minlength'] && firstname.touched && firstname.dirty ">
+                name is too short.
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="firstname.errors?.['pattern'] && firstname.touched && firstname.dirty">
+                first Name should not start with aplphabet.
+            </div> -->
+        </div>
+        <div class="col">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lname" formControlName="Lname">
+            <div class="form-text text-danger"
+                *ngIf="submitted && LastName.errors?.['required']">
+                last Name is required.
+            </div>
+            <!--<div class="form-text text-danger"
+                *ngIf="LastName.errors?.['minlength'] && LastName.touched && LastName.dirty ">
+                name is too short.
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="LastName.errors?.['pattern'] && LastName.touched && LastName.dirty">
+                first Name should not start with aplphabet.
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <div class="form-text text-danger" *ngIf="submitted && Email.errors?.['required']  ">
+                    Email is required.
+                </div>
+                <!--<div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.touched || Email.dirty)">
+                    Email is invalid.
+                </div> -->
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="pwd" class="form-label">Password</label>
+                <input type="password" class="form-control" id="pwd" formControlName="pwd">
+                <div class="form-text text-danger" *ngIf="PWD.errors?.['required'] && submitted">
+                    Password is required</div>
+                <!--<div class= "form-text text-danger" 
+                *ngIf="PWD.errors?.['maxlength']">Max 10 characters</div>
+            </div>-->
+            <!--<div class="col mb-3">
+                <label for="rpwd" class="form-label">Repeat Password</label>
+                <input type="password" class="form-control" id="rpwd" formControlName="rpwd">
+                <div class="form-text text-danger" [ngStyle]="{'display': repeatPass}">
+                Repeat pass invalid</div>-->
+                
+                
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                    <button type="submit" (click)="registerSubmit()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    <div>
+        already a member?<a routerLink="/">Login</a>
+    </div>
+    <div class="alert alert-warning" *ngIf="submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful && submitted">
+      Your registration is successful!
+    </div>
+
