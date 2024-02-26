@@ -62,7 +62,7 @@ export class RegisterComponent {
     this.authService.register(this.firstName.value,this.LastName.value,this.Email.value,this.PWD.value).subscribe({
       next: data => {
         console.log(data);
-        
+        debugger
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         

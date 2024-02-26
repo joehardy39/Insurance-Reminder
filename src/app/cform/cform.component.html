@@ -1,0 +1,206 @@
+<form [formGroup]="CustomerForm" class="border p-3 rounded-3">
+<div>
+    <mat-card>
+
+    <div class="mat-card-title"><mat-card-title>Personal Details</mat-card-title></div>
+
+    <mat-card-content>
+        
+            <div class="row">
+                <div class="col">
+                    <label for="firstname" class="form-label">First Name*</label>
+                    <input type="text" class="form-control" id="firstname" formControlName="firstname">
+                    <div *ngIf="submitted && f['firstname'].errors" class="text-danger">
+                        <div *ngIf="f['firstname'].errors['required']">required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="lname" class="form-label">Last Name*</label>
+                    <input type="text" class="form-control" id="lname" formControlName="Lname">
+                    <div *ngIf="submitted && f['Lname'].errors " class="text-danger">
+                        <div *ngIf="f['Lname'].errors['required']">required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="email" class="form-label">Email Address*</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                    <div *ngIf="submitted && f['email'].errors " class="text-danger">
+                        <div *ngIf="f['email'].errors['required']">required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="firstname" class="form-label">Phone No*</label>
+                    <input type="text" class="form-control" id="phone" formControlName="phone">
+                    <div *ngIf="submitted && f['phone'].errors " class="text-danger">
+                        <div *ngIf="f['phone'].errors['required']">required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="firstname" class="form-label">Optional Phone No</label>
+                    <input type="text" class="form-control" id="sphone" formControlName="sphone">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="address" class="form-label">Permanent Address*</label>
+                    <input type="text" class="form-control" id="padd" formControlName="padd">
+                    <div *ngIf="submitted && f['padd'].errors" class="text-danger">
+                        <div *ngIf="f['padd'].errors['required']">required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="sadd" class="form-label">Temp Add</label>
+                    <input type="text" class="form-control" id="sadd" formControlName="sadd">
+                </div>
+            </div>
+        <!--</form>-->
+    </mat-card-content>
+</mat-card></div>
+
+<!---->
+<div>
+    <mat-card>
+
+        <div class="mat-card-title"><mat-card-title>Family Details</mat-card-title></div>
+    
+        <mat-card-content>
+            <!--<form [formGroup]="CustomerForm" class="border p-3 rounded-3">-->
+                <div class="row">
+                    <div class="col">
+                        <label for="father" class="form-label">Fathers Name*</label>
+                        <input type="text" class="form-control" id="father" formControlName="father">
+                        <div *ngIf="submitted && f['father'].errors" class="text-danger">
+                            <div *ngIf="f['father'].errors['required']">required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="mother" class="form-label">Mothers Name*</label>
+                        <input type="text" class="form-control" id="mother" formControlName="mother">
+                        <div *ngIf="submitted && f['mother'].errors " class="text-danger">
+                            <div *ngIf="f['mother'].errors['required']">required</div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col">
+                    <p>Maritial Status</p>
+                    <div class="custom-control custom-radio">
+                        <input id="married" type="radio" class="custom-control-input" value="married" name="stat"
+                            formControlName="stat">
+                        <label class="custom-control-label" for="married">married</label>
+                    </div>
+    
+    
+                    <div class="custom-control custom-radio">
+                        <input id="single" type="radio" class="custom-control-input" value="single" name="stat"
+                            formControlName="stat">
+                        <label class="custom-control-label" for="single">single</label>
+                    </div>
+                    <div class="invalid-feedback" *ngIf="submitted && CustomerForm.errors?.['required']">
+                        <p>Please select either value</p>
+                      </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="spouse" class="form-label">Spouse Name</label>
+                        <input type="text" class="form-control" id="spouse" formControlName="spouse">
+                        <div *ngIf="submitted && f['spouse'].errors " class="text-danger">
+                            <div *ngIf="f['spouse'].errors['required']">required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="kids" class="form-label">Name Of Children</label>
+                        <input type="text" class="form-control" id="kids" formControlName="kids">
+                        <div *ngIf="submitted && f['kids'].errors " class="text-danger">
+                            <div *ngIf="f['kids'].errors['required']">required</div>
+                        </div>
+                    </div>
+                </div>
+            <!--</form>-->
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <mat-card>
+
+        <div class="mat-card-title"><mat-card-title>Bank Details</mat-card-title></div>
+    
+        <mat-card-content>
+            <!--<form [formGroup]="CustomerForm" class="border p-3 rounded-3">-->
+                <div class="row">
+                    <div class="col">
+                        <label for="ifsc" class="form-label">IFSC Number*</label>
+                        <input type="text" class="form-control" id="ifsc" formControlName="ifsc">
+                        <div *ngIf="submitted && f['ifsc'].errors" class="text-danger">
+                            <div *ngIf="f['ifsc'].errors['required']">required</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <label for="type">Select an Insurance type:</label>
+                    <select id="type" class="form-control" formControlName="type">
+                        <option value="Life Insurance">Life Insurance</option>
+                        <option value="Health Insurance">Health Insurance</option>
+                        <option value="Motor Insurance">Motor Insurance</option>
+                        <option value="Travel Insurance">Travel Insurance</option>
+                    </select>
+                    <div *ngIf="submitted && f['type'].errors " class="text-danger">
+                        <div *ngIf="f['type'].errors['required']">required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="comp">Select an Insurance Company:</label>
+                    <select id="comp" class="form-control" formControlName="comp">
+                        <option selected disabled hidden>--select--</option>
+                        <option value="Aditya Birla  Insurance">Aditya Birla Insurance</option>
+                        <option value="Bajaj Allianz Insurance">Bajaj Allianz Insurance</option>
+                        <option value="Bharti AXA Insurance">Bharti AXA Insurance</option>
+                        <option value="Kotak Mahindra Insurance">Kotak Mahindra Insurance</option>
+                    </select>
+                    <div *ngIf="submitted && f['type'].errors " class="text-danger">
+                        <div *ngIf="f['type'].errors['required']">required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="agent">Select an Agent :</label>
+                    <select id="agent" class="form-control" formControlName="agent">
+                        <option selected disabled hidden>--select--</option>
+                        <option value="Aditya Birla  Insurance">Aditya Birla Insurance</option>
+                        <option value="Bajaj Allianz Insurance">Bajaj Allianz Insurance</option>
+                        <option value="Bharti AXA Insurance">Bharti AXA Insurance</option>
+                        <option value="Kotak Mahindra Insurance">Kotak Mahindra Insurance</option>
+                    </select>
+                    <div *ngIf="submitted && f['agent'].errors " class="text-danger">
+                        <div *ngIf="f['agent'].errors['required']">required</div>
+                    </div>
+                </div>
+            <!--</form>-->
+        </mat-card-content>
+    </mat-card>
+</div>
+<br>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="d-grid">
+            <button type="submit" (click)="CustSubmit()" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
+
+</form>

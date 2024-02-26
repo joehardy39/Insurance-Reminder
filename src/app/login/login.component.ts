@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl,FormGroup,Validators,AbstractControl } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { StorageService } from '../_services/storage.service'
+import { Router } from '@angular/router';
+import { ReactiveFormsModule , FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +12,9 @@ import { StorageService } from '../_services/storage.service'
 })
 export class LoginComponent {
 
+  
+
   LoginForm = new FormGroup({
-    firstname : new FormControl("", [Validators.required, Validators.minLength(2),Validators.pattern("[a-zA-Z].*")]),
-    Lname : new FormControl("", [Validators.required, Validators.minLength(2),Validators.pattern("[a-zA-Z].*")]),
     email : new FormControl("",[Validators.required, Validators.email]),
     pwd : new FormControl("", [Validators.required, Validators.maxLength(10)])
   });
@@ -34,7 +36,7 @@ export class LoginComponent {
     return this.LoginForm.controls;
   }
 
-  constructor(private authService: AuthService, private storageService: StorageService) { }
+  constructor(private authService: AuthService, private storageService: StorageService,private router: Router) { }
 
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
@@ -45,6 +47,9 @@ export class LoginComponent {
 
 
   LoginSubmit(){
+
+    this.router.navigate(['/cust']);
+
     this.submitted = true;
    
     if(this.LoginForm.invalid) {
